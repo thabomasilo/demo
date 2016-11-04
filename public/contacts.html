@@ -1,0 +1,49 @@
+<div ng-controller="AppCtrl" class "contacts">
+    <div class="container" style="text-align: center">
+
+        <nav class="navbar navbar-default">
+            <div class="navbar-header">
+                <div class="nav navbar-nav navbar-center">
+                    <h1>Contacts</h1>
+                </div>
+            </div>
+            <div class="nav navbar-nav navbar-right">
+                <h4>Search: <input class="from-control" ng-model="searh.name"></h4>
+            </div>
+
+        </nav>
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Number</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><input class="from-control" ng-model="contact.name"></td>
+                    <td><input class="from-control" ng-model="contact.email"></td>
+                    <td><input class="from-control" ng-model="contact.number"></td>
+                    <td><button class="btn btn-primary" ng-click="addContact()">Add Contact</button></td>
+                    <td><button class="btn btn-info" ng-click="update()">Update</button></td>
+                    <td><button class="btn btn-info" ng-click="clear()">Clear</button></td>
+                </tr>
+                <tr ng-repeat="contact in contacts | filter:searh.name">
+                    <td>{{contact.name | uppercase}}</td>
+                    <td>{{contact.email}}</td>
+                    <td>{{contact.number}}</td>
+                    <td><button class="btn btn-danger" ng-click="remove(contact._id)">Delete</button></td>
+                    <td><button class="btn btn-warning" ng-click="edit(contact._id)">Edit</button>
+            </tbody>
+        </table>
+
+        </br>
+        </br>
+        </br>
+        </br>
+
+    </div>
+</div>
